@@ -1,3 +1,4 @@
+import SearchBox from "@/components/SearchBox";
 import {
   HeadText,
   MainContainer,
@@ -13,6 +14,7 @@ const PostsUI = () => {
       <SubHeadText>
         The latest industry news, interviews, technologies, and resources.
       </SubHeadText>
+      <SearchBox />
     </MainContainer>
   );
 };

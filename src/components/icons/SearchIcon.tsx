@@ -1,6 +1,6 @@
 import React, { SVGProps } from "react";
 
-export const AlignCenterIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
+export const SearchIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="20"
     height="20"
@@ -19,4 +19,4 @@ export const AlignCenterIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-export default AlignCenterIcon;
+export default SearchIcon;
