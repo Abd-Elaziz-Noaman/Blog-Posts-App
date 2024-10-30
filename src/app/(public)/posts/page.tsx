@@ -1,7 +1,8 @@
 import React from "react";
+import PostsUI from "./components/PostsUI";
 
 const Posts = () => {
-  return <div>Posts page</div>;
+  return <PostsUI />;
 };
 
 export default Posts;
