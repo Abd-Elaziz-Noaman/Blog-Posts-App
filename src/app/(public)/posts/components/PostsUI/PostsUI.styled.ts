@@ -44,16 +44,14 @@ export const SubHeadText = styled("h3")`
 export const PostsContainer = styled("div")`
   width: 100%;
   display: grid;
-  gap: 16px; /* Space between items */
-  grid-template-columns: repeat(1, 1fr); /* Default for xs and sm */
+  gap: 16px;
+  grid-template-columns: repeat(1, 1fr);
 
   @media (min-width: 640px) {
-    /* md screens */
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1024px) {
-    /* lg screens */
     grid-template-columns: repeat(3, 1fr);
   }
 `;

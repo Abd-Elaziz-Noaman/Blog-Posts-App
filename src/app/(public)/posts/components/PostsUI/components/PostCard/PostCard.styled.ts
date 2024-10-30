@@ -22,8 +22,6 @@ export const MainContainer = styled("div")`
   justify-content: flex-start;
   align-items: flex-start;
   gap: 20px;
-  /* flex-basis: 384px; */
-  /* flex-grow: 1; */
 `;
 
 export const HeadText = styled("h3")`
