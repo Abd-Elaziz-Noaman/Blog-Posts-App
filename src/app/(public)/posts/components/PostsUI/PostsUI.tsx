@@ -8,11 +8,12 @@ import {
   SubHeadText,
   TipBlock,
 } from "./PostsUI.styled";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Post } from "@/services/posts/types";
 import { postsService } from "@/services/posts/postsServices";
 import PostCard from "./components/PostCard";
+import LoadingSpinner from "@/components/LoadingSpinner";
 
 const PostsUI = () => {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -36,19 +37,23 @@ const PostsUI = () => {
 
   return (
     <MainContainer>
-      <TipBlock>Our blog</TipBlock>
-      <HeadText>Resources and insights</HeadText>
-      <SubHeadText>
-        The latest industry news, interviews, technologies, and resources.
-      </SubHeadText>
-      <SearchBox />
-      <PostsContainer>
-        {isLoading ? (
-          <h1>Loading...</h1>
-        ) : (
-          posts.map((post) => <PostCard key={post.id} data={post} />)
-        )}
-      </PostsContainer>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <Fragment>
+          <TipBlock>Our blog</TipBlock>
+          <HeadText>Resources and insights</HeadText>
+          <SubHeadText>
+            The latest industry news, interviews, technologies, and resources.
+          </SubHeadText>
+          <SearchBox />
+          <PostsContainer>
+            {posts.map((post) => (
+              <PostCard key={post.id} data={post} />
+            ))}
+          </PostsContainer>
+        </Fragment>
+      )}
     </MainContainer>
   );
 };
