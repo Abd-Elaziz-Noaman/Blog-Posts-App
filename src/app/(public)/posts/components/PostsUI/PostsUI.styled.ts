@@ -1,5 +1,3 @@
-"use client";
-
 import {
   PRIMARY_COLOR,
   SECONDARY_COLOR,
@@ -41,4 +39,21 @@ export const SubHeadText = styled("h3")`
   font-weight: 400;
   line-height: 30px;
   color: ${SECONDARY_COLOR};
+`;
+
+export const PostsContainer = styled("div")`
+  width: 100%;
+  display: grid;
+  gap: 16px; /* Space between items */
+  grid-template-columns: repeat(1, 1fr); /* Default for xs and sm */
+
+  @media (min-width: 640px) {
+    /* md screens */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    /* lg screens */
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;

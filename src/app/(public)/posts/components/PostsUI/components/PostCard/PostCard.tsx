@@ -6,27 +6,51 @@ import {
   HeadText,
   MainContainer,
   RowStack,
+  PostImage,
   SubHeadText,
+  AvatarImage,
+  AvatarWrapper,
 } from "./PostCard.styled";
 import ArrowIcon from "@/components/icons/ArrowIcon";
+import { Post } from "@/services/posts/types";
+import { FC } from "react";
 
-const PostCard = () => {
+interface PostCardProps {
+  data: Post;
+}
+
+const PostCard: FC<PostCardProps> = ({ data }) => {
+  const {
+    title,
+    type_of,
+    description,
+    published_at,
+    user,
+    cover_image,
+    social_image,
+  } = data;
+
   return (
     <MainContainer>
-      <Image alt="post image" src="" />
-      <SubHeadText>daafafa</SubHeadText>
+      <PostImage alt="post image" src={social_image} width={500} height={300} />
+      <SubHeadText>{type_of}</SubHeadText>
       <RowStack>
-        <HeadText>dadadhakdlsaldadlahdas</HeadText>
+        <HeadText>{title}</HeadText>
         <ArrowIcon />
       </RowStack>
-      <DescriptionText>dadadkadajhdakjdbajdabdjkabdajkdbajdada</DescriptionText>
-      <RowStack>
-        <Image alt="avatar" src="" />
+      <DescriptionText>{description}</DescriptionText>
+      <AvatarWrapper>
+        <AvatarImage
+          alt="avatar"
+          src={user.profile_image}
+          width={40}
+          height={40}
+        />
         <div>
-          <AvatarTitle>asfadafasd</AvatarTitle>
-          <DateText>20 Jan 2022</DateText>
+          <AvatarTitle>{user.name}</AvatarTitle>
+          <DateText>{new Date(published_at).toDateString()}</DateText>
         </div>
-      </RowStack>
+      </AvatarWrapper>
     </MainContainer>
   );
 };

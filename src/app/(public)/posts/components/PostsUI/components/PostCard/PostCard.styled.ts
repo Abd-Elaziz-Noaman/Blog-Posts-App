@@ -1,11 +1,15 @@
+"use client";
+
 import {
   DARK_TEXT_COLOR,
   GRAY_COLOR,
   SECONDARY_COLOR,
 } from "@/app/styles/colors";
+import Image from "next/image";
 import styled from "styled-components";
 
 export const MainContainer = styled("div")`
+  position: relative;
   height: 580px;
   width: 100%;
   padding: 24px;
@@ -15,9 +19,11 @@ export const MainContainer = styled("div")`
     0px 12px 16px -4px rgba(16, 24, 40, 0.08);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
-  flex-basis: 384px;
+  gap: 20px;
+  /* flex-basis: 384px; */
+  /* flex-grow: 1; */
 `;
 
 export const HeadText = styled("h3")`
@@ -44,7 +50,14 @@ export const DescriptionText = styled("p")`
 export const RowStack = styled("div")`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 16px;
+`;
+
+export const AvatarWrapper = styled(RowStack)`
+  position: absolute;
+  bottom: 32px;
+  left: 24px;
 `;
 
 export const AvatarTitle = styled("p")`
@@ -59,4 +72,17 @@ export const DateText = styled("p")`
   font-weight: 400;
   line-height: 20px;
   color: ${GRAY_COLOR};
+`;
+
+export const PostImage = styled(Image)`
+  height: 30%;
+  width: 100%;
+  object-fit: cover;
+`;
+
+export const AvatarImage = styled(Image)`
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 `;
