@@ -20,15 +20,8 @@ interface PostCardProps {
 }
 
 const PostCard: FC<PostCardProps> = ({ data }) => {
-  const {
-    title,
-    type_of,
-    description,
-    published_at,
-    user,
-    cover_image,
-    social_image,
-  } = data;
+  const { title, type_of, description, published_at, user, social_image } =
+    data;
 
   return (
     <MainContainer>

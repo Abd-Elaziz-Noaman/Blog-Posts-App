@@ -8,7 +8,7 @@ import {
   SubHeadText,
   TipBlock,
 } from "./PostsUI.styled";
-import { Fragment, useEffect, useState } from "react";
+import { ChangeEvent, Fragment, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Post } from "@/services/posts/types";
 import { postsService } from "@/services/posts/postsServices";
@@ -17,7 +17,18 @@ import LoadingSpinner from "@/components/LoadingSpinner";
 
 const PostsUI = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<Post[] | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setSearchQuery(newValue);
+    const newFilteredPosts = [...posts].filter((post) =>
+      post.title.toLowerCase().includes(searchQuery)
+    );
+    setFilteredPosts(newFilteredPosts);
+  };
 
   const fetchPosts = async () => {
     setIsLoading(true);
@@ -46,9 +57,9 @@ const PostsUI = () => {
           <SubHeadText>
             The latest industry news, interviews, technologies, and resources.
           </SubHeadText>
-          <SearchBox />
+          <SearchBox value={searchQuery} onChange={handleSearch} />
           <PostsContainer>
-            {posts.map((post) => (
+            {(searchQuery.length > 0 ? filteredPosts : posts)?.map((post) => (
               <PostCard key={post.id} data={post} />
             ))}
           </PostsContainer>
