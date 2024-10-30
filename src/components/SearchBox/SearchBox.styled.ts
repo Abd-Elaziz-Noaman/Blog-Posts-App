@@ -16,6 +16,7 @@ export const MainContainer = styled("div")`
 
 export const SearchInput = styled("input")`
   height: 100%;
+  min-height: 48px;
   width: 100%;
   border-radius: 0 8px 8px 0;
   background-color: transparent;

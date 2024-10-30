@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ToastContainer } from "react-toastify";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div style={{ height: "100vh", width: "100vw", overflowY: "auto" }}>
           {children}
+          <ToastContainer />
         </div>
       </body>
     </html>
