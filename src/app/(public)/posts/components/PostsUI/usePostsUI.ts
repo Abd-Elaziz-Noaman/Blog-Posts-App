@@ -22,6 +22,7 @@ const usePostsUI = () => {
     setIsLoading(true);
     try {
       const posts = await postsService.get();
+      console.log("🚀 ~ fetchPosts ~ posts:", posts);
       setPosts(posts);
     } catch (err: any) {
       toast.error("Failed to fetch posts!");

@@ -6,9 +6,10 @@ import {
   SECONDARY_COLOR,
 } from "@/app/styles/colors";
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 
-export const MainContainer = styled("div")`
+export const MainContainer = styled(Link)`
   position: relative;
   height: 580px;
   width: 100%;

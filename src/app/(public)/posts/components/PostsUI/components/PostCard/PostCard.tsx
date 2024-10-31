@@ -19,11 +19,18 @@ interface PostCardProps {
 }
 
 const PostCard: FC<PostCardProps> = ({ data }) => {
-  const { title, type_of, description, published_at, user, social_image } =
-    data;
+  const {
+    title,
+    type_of,
+    description,
+    published_at,
+    user,
+    social_image,
+    canonical_url,
+  } = data;
 
   return (
-    <MainContainer>
+    <MainContainer href={canonical_url}>
       <PostImage alt="post image" src={social_image} width={500} height={300} />
       <SubHeadText>{type_of}</SubHeadText>
       <RowStack>
