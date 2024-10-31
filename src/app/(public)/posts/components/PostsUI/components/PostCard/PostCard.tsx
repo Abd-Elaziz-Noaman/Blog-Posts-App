@@ -12,7 +12,7 @@ import {
 } from "./PostCard.styled";
 import ArrowIcon from "@/components/icons/ArrowIcon";
 import { Post } from "@/services/posts/types";
-import { FC } from "react";
+import { FC, memo } from "react";
 
 interface PostCardProps {
   data: Post;
@@ -54,4 +54,4 @@ const PostCard: FC<PostCardProps> = ({ data }) => {
   );
 };
 
-export default PostCard;
+export default memo(PostCard);
