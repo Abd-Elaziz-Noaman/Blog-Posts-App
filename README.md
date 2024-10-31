@@ -16,7 +16,7 @@ To get started with this application, follow the steps below:
 2. **Install dependencies:**
 
    ```bash
-   npm install
+   npm install -- legacy-peer-deps ==> because there are still some dependencies that are not completely compatible with React 19
    # or
    yarn install
    # or

@@ -23,7 +23,7 @@ const usePostsUI = () => {
     try {
       const posts = await postsService.get();
       setPosts(posts);
-    } catch (err: any) {
+    } catch (_) {
       toast.error("Failed to fetch posts!");
     } finally {
       setIsLoading(false);
